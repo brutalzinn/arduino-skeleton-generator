@@ -6,10 +6,17 @@ type ResponseData = {
   data: string
 }
 
-export default async function POST(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse
 ) {
+
+  if (req.method != 'POST'){
+    res.status(405).json({data: "cant hadle this method"})
+    return
+  }
+
+
   const zip = archiver('zip')
   zip.on('error', function(err) {
     res.status(500).send(err.data);
@@ -57,5 +64,5 @@ zip.append(configData, { name: 'config.h' })
   .file('shared/files/generators/wemos/README.md', { name: 'README.md' })
   .file('shared/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
   .finalize();
-  res.status(200)
+  return NextResponse.json(data)
 }
