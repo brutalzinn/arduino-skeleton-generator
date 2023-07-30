@@ -6,11 +6,10 @@ type ResponseData = {
   data: string
 }
 
-export async function POST(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  const body = req.body
   const zip = archiver('zip')
   zip.on('error', function(err) {
     res.status(500).send(err.data);

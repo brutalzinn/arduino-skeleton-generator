@@ -3,7 +3,7 @@ export default function WemosGenerator(){
         <div>
           <h1>Wemos Generator</h1>
         </div>
-        <form method="POST" action="/api/wemos">
+        <form action="/api/wemos"  method="post">
           <table>
             <tbody>
               <tr>
