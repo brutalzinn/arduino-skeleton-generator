@@ -1,0 +1,7 @@
+#define WIFI_SSID "[CONFIG_WIFI_SSID]"
+#define WIFI_PASS "[CONFIG_WIFI_PASSWORD]"
+#define SOCKET_PORT "[CONFIG_SOCKET_PORT]"
+IPAddress ip([CONFIG_IP]);
+IPAddress gateway([CONFIG_GATEWAY]);
+IPAddress subnet([CONFIG_SUBNET]);
+IPAddress dns([CONFIG_DNS]);
