@@ -18,6 +18,8 @@ export default async function POST(
   zip.on('end', function() {
     console.log('Archive wrote %d bytes', zip.pointer());
   });
+  zip.pipe(res)
+
   let keyConfig = [{
     name: "CONFIG_WIFI_SSID",
     value: req.body.config_network_name
@@ -55,7 +57,5 @@ zip.append(configData, { name: 'config.h' })
   .file('shared/files/generators/wemos/README.md', { name: 'README.md' })
   .file('shared/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
   .finalize();
-
-  zip.pipe(res)
-
+  res.status(200)
 }
