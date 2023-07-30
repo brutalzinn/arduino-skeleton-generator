@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import archiver from 'archiver'
-import { ReadData, WriteData } from './util'
+import { ReadData, WriteData } from '../../shared/util'
 
 type ResponseData = {
   data: string

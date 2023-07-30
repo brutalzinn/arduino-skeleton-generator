@@ -2,7 +2,6 @@ export default function WemosGenerator(){
     return(<>
         <div>
           <h1>Wemos Generator</h1>
-          <img src="/arduino_schema.png" />
         </div>
         <form method="POST" action="/api/wemos">
           <table>
