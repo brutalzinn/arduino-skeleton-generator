@@ -1,6 +1,6 @@
 export default function WemosGenerator(){
     return(<>
-        <div className="jumbotron">
+        <div>
           <h1>Wemos Generator</h1>
           <img src="/arduino_schema.png" />
         </div>
