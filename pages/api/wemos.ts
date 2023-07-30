@@ -64,5 +64,5 @@ zip.append(configData, { name: 'config.h' })
   .file('shared/files/generators/wemos/README.md', { name: 'README.md' })
   .file('shared/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
   .finalize();
-  return NextResponse.json(data)
+ 
 }
