@@ -51,7 +51,7 @@ export default async function handler(
     value: req.body.config_network_dns
   }]
 
-const configDataText = await ReadData('shared/files/generators/wemos/config.h')
+const configDataText = await ReadData(process.cwd() + '/shared/files/generators/wemos/config.h')
 let configText = {
   keyConfigs: keyConfig,
   text: configDataText
@@ -59,10 +59,11 @@ let configText = {
 const configData = await WriteData(configText)
 
 
-zip.append(configData, { name: 'config.h' })
+zip
+  .append(configData, { name: 'config.h' })
   .append("config.h",  { name: '.gitignore' })
-  .file('shared/files/generators/wemos/README.md', { name: 'README.md' })
-  .file('shared/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
+  .file(process.cwd() + '/shared/files/generators/wemos/README.md', { name: 'README.md' })
+  .file(process.cwd() + '/shared/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
   .finalize();
  
 }
