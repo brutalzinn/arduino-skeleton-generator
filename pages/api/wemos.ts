@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import archiver from 'archiver'
 import { ReadData, WriteData } from '../../shared/util'
-
+import path from 'path'
 type ResponseData = {
   data: string
 }
@@ -50,8 +50,8 @@ export default async function handler(
     name: "CONFIG_DNS",
     value: req.body.config_network_dns
   }]
-
-const configDataText = await ReadData( 'public/files/generators/wemos/config.h')
+const dir = path.join(process.cwd(), 'generators', 'wemos' )
+const configDataText = await ReadData( path.join(dir, "config.h"))
 let configText = {
   keyConfigs: keyConfig,
   text: configDataText
@@ -62,8 +62,8 @@ const configData = await WriteData(configText)
 zip
   .append(configData, { name: 'config.h' })
   .append("config.h",  { name: '.gitignore' })
-  .file('public/files/generators/wemos/README.md', { name: 'README.md' })
-  .file('public/files/generators/wemos/wemos.ino', { name: 'wemos.ino' })
+  .file( path.join(dir, "README.md"), { name: 'README.md' })
+  .file(path.join(dir, "wemos.ino"), { name: 'wemos.ino' })
   .finalize();
  
 }
