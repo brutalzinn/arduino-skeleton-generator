@@ -1,4 +1,5 @@
-# SKELETON GENERATOR FOR ESP 01 COMMUNICATION AND ARDUINO ReactJs version
+# SKELETON GENERATOR for Arduino projects
 
+This project will be used to demonstrate how to use object orientation with typescript and migrate concepts from reactjs to nextjs.
 
-You can access this old version with JSX at [esp01-skeleton-generator](https://arduino.robertocpaes.dev
+INFNET bootcamp - first week of august.
